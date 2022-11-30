@@ -33,14 +33,15 @@ Ex: `php app.php create 2022 12 overwrite`.
 
 Run a script for the given year, day and part indicator. First and second parts of an assignment are indicated with a and b respectively.
 Can accept al values as one string, or separated as individual arguments in order.
-All examples below will attempt to run the second part of the first day assignment of the 2022 event.
+Both examples below will attempt to run the second part of the first day assignment of the 2022 event.
 
 `php app.php run 20221b`
 
 `php app.php run 202201b`
 
 Running tests is as easy as adding a 'test' parameter at the end of your run command:
-php app.php run 20221b test
+
+`php app.php run 20221a test`
 
 
 ### help

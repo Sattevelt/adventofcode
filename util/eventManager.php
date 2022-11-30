@@ -11,6 +11,8 @@ class EventManager
 {
     public function createPuzzle(string $year, string $day, bool $overwriteExisting = false)
     {
+        $sep = DIRECTORY_SEPARATOR;
+
         // Handle basepath
         $basePath = Config::get('basePath');
         $this->checkPath($basePath);
@@ -23,16 +25,20 @@ class EventManager
             $this->createDirIfNotExists($localPath);
         }
 
-        // Create puzzle files
-        $inputFile = $localPath . DIRECTORY_SEPARATOR . 'input.txt';
-        $partAFile = $localPath . DIRECTORY_SEPARATOR . 'part-a.php';
-        $partBFile = $localPath . DIRECTORY_SEPARATOR . 'part-b.php';
+        // Create puzzle file names
+        $inputFile = $localPath . $sep . 'input.txt';
+        $testsFile = $localPath . $sep . 'tests.php';
+        $partAFile = $localPath . $sep . 'part-a.php';
+        $partBFile = $localPath . $sep . 'part-b.php';
 
+        // Get file contents
         $inputData = $this->downloadInput((int)$year, (int)$day);
-        $partData = file_get_contents(
-            $basePath . DIRECTORY_SEPARATOR . 'util' . DIRECTORY_SEPARATOR . 'defaultCode.php'
-        );
+        $partData = file_get_contents($basePath . $sep . 'util' . $sep . 'defaultCode.php');
+        $testData = file_get_contents($basePath . $sep . 'util' . $sep . 'defaultTests.php');
+
+        // Write files
         $this->createFileIfNotExists($inputFile, $inputData, $overwriteExisting);
+        $this->createFileIfNotExists($testsFile, $testData, $overwriteExisting);
         $this->createFileIfNotExists($partAFile, $partData, $overwriteExisting);
         $this->createFileIfNotExists($partBFile, $partData, $overwriteExisting);
     }

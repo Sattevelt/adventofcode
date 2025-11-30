@@ -1,1 +1,7 @@
 events
+/.idea/.gitignore
+/.idea/adventofcode.iml
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/vcs.xml

@@ -86,6 +86,9 @@ class EventManager
         $options = [
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_COOKIE => 'session=' . Config::get('aocSessionId'),
+            CURLOPT_USERAGENT => 'https://github.com/Sattevelt/adventofcode sattevelt@gmail.com',
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0
         ];
 
         $curl = curl_init($url);

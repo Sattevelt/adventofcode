@@ -3,7 +3,9 @@
 return [
     [
         'name' => 'test 1',
-        'input' => [],
+        'input' => <<<END
+END
+,
         'solution' => 0,
     ],
 ];

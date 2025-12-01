@@ -1,0 +1,11 @@
+<?php
+
+return [
+    [
+        'name' => 'test 1',
+        'input' => <<<END
+END
+,
+        'solution' => 7,
+    ],
+];
